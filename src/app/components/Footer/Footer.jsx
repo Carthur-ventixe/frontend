@@ -1,5 +1,10 @@
-export default function Footer() {
+import './Footer.css'
+
+function Footer() {
   return (
-    <div>Footer</div>
+    <footer className='footer'>
+      <p>Copyright © 2025 Ventixe</p>
+    </footer>
   )
 }
+export default Footer

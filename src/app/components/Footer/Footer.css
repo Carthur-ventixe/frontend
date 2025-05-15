@@ -1,0 +1,14 @@
+.footer {
+    display: flex;
+    align-items: center;
+    height: 52px;
+    background-color: var(--color-gray-20);
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 0 1rem 1rem 0;
+    p {
+        font-size: 0.75rem;
+        font-weight: var(--font-semibold);
+        color: var(--color-gray-70);
+    }
+}

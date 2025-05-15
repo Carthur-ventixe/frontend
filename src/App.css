@@ -92,6 +92,28 @@ a {
   text-decoration: none;
 }
 
+/* Main Layout*/
+
+.main-wrapper {
+  display: grid;
+  gap: 1rem;
+
+  grid-template-columns: 1fr;
+  grid-template-areas: "nav" "header" "main" "footer";
+
+  @media (width >= 768px) {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "nav header" "nav main" "nav footer";
+  }
+  
+  @media (width >= 1400px) {
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "nav header" "nav main" "nav footer";
+  }
+}
+
 nav {
   grid-area: nav;
 }
@@ -103,3 +125,10 @@ header {
 main {
   grid-area: main;
 }
+
+footer {
+  grid-area: footer;
+}
+
+
+
