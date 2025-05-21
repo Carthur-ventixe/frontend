@@ -1,0 +1,47 @@
+.event-package-card {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    background-color: var(--color-gray-20);
+    border-radius: 16px;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    .package-title {
+        font-size: 1rem;
+        font-weight: var(--font-semibold);
+        color: var(--color-gray-100);
+        margin-bottom: .6rem;
+    }
+
+    .position {
+        display: flex;
+        align-items: center;
+        gap: .3rem;
+        font-size: 0.75rem;
+        color: var(--color-gray-80);
+    }
+
+    .package-price {
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: var(--font-medium);
+        color: var(--color-primary-100);
+        margin-right: 1.5rem;
+    }
+
+    .buy-ticket {
+        border-radius: 30px;
+        padding: 1rem 1.5rem;
+        border: none;
+        background-color: var(--color-primary-100);
+        color: var(--color-gray-10);
+        cursor: pointer;
+    }
+}
+
+
+.flex-group {
+    display: flex;
+    gap: 1.5rem;
+}

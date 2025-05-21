@@ -1,21 +1,25 @@
 import './EventCard.css'
+import { Link } from 'react-router-dom'
 
-function EventCard() {
+function EventCard({ event }) {
   return (
-    <div className='event-card'>
+    <Link to={`/events/${event.id}`}>
+      <div className='event-card'>
           <div className='img-container'>
             <img src="" alt="" />
           </div>
           <div className='event-info'>
-            <p className='date'>June 5, 2029 - 3:00 PM</p>
-            <p className='title'>Adventure Gear Show</p>
+            <p className='date'>{event.eventDate}</p>
+            <p className='title'>{event.title}</p>
             <div className='location'>
               <img src="/images/MapPin.svg" alt="" />
-              <p>Rocky Ridge Exhibition Hall, Denver, CO</p>
+              <p>{event.location}</p>
             </div>
-            <p className='price'>$40</p>
+            <p className='price'>${event.price}</p>
           </div>
-    </div>
+      </div>
+    </Link>
+    
   )
 }
 export default EventCard

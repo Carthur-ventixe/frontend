@@ -1,16 +1,18 @@
 import './Events.css'
 import EventCard from './EventCard'
+import { useContext } from 'react'
+import { EventContext } from '../../contexts/EventContext'
 
 function Events() {
+
+  const { events } = useContext(EventContext);
+
   return (
-    <div className="event-wrapper">
+    <div className="events-wrapper">
       <div className='events-container'>
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
+        {
+          events.map(event => (<EventCard key={event.id} event={event}/>))
+        }
       </div>
     </div>
   )
