@@ -3,15 +3,31 @@ import React, { createContext, useState, useEffect } from "react";
 export const EventContext = createContext();
 
 const EventProvider = ({children}) => {
-    const apiUrl = 'https://localhost:7016/api/events';
+    const apiUrl = 'https://localhost:7016/api';
     const [events, setEvents] = useState([]);
+    const [event, setEvent] = useState([]);
+    const [eventPackage, setPackage] = useState([]);
+    
 
     const getEvents = async () => {
-        const res = await fetch(apiUrl)
+        const res = await fetch(apiUrl + '/events');
         const data = await res.json();
-        console.log(data)
 
         setEvents(data.result);
+    }
+
+    const getEvent = async (id) => {
+        const res = await fetch(apiUrl + `/events/${id}`);
+        const data = await res.json();
+
+        setEvent(data.result);
+    }
+
+    const getPackage = async (id) => {
+        const res = await fetch(apiUrl + `/packages/${id}`)
+        const data = await res.json();
+        
+        setPackage(data);
     }
 
     useEffect(() => {
@@ -19,7 +35,7 @@ const EventProvider = ({children}) => {
     },[])
 
     return (
-        <EventContext.Provider value={{events}}>
+        <EventContext.Provider value={{ events, event, getEvent, eventPackage, getPackage}}>
             {children}
         </EventContext.Provider>
     )

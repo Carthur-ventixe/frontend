@@ -1,26 +1,27 @@
+import { Link } from 'react-router-dom'
 import './EventPackage.css'
 
-function EventPackage() {
+function EventPackage({ p, eventId }) {
   return (
     
     <div className="event-package-card">
       <div>
-        <p className='package-title'>General Admission Package</p>
+        <p className='package-title'>{p.title}</p>
         <div className='flex-group'>
             <div className="position">
               <img src="/images/CheckCircle.svg" alt="" />
-              <p>Seating</p>             
+              <p>{p.position}</p>             
             </div>
             <div className="position">
               <img src="/images/CheckCircle.svg" alt="" />
-              <p>Near Stage</p>             
+              <p>{p.placement}</p>             
             </div>            
         </div>
       </div>
       <div className="package-price">
-        <p>$50</p>
+        <p>${p.price}</p>
       </div>
-      <button className='buy-ticket'>Buy</button>
+      <Link className='btn btn-primary' to={`/bookevent/${eventId}/${p.id}`}>Buy</Link>
     </div>
   )
 }

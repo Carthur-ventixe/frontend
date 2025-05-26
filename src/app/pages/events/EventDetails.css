@@ -16,11 +16,18 @@
     border-radius: 16px;
     background-color: var(--color-gray-10);
     height: auto;
-
+    
     .img-container {
         height: 351px;
         background-color: var(--color-gray-40);
         border-radius: 16px 16px 0 0;
+        overflow: hidden;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
     }
 
     .event-info-wrapper {

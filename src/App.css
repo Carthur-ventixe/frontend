@@ -32,6 +32,7 @@
   --color-gray-70: #777779;
   --color-gray-80: #636365;
   --color-gray-90: #434345;
+  --color-grey-95: #333333;
   --color-gray-100: #1E1E20;
 
   --color-cool-grey-10: #EEEFFF;
@@ -128,6 +129,27 @@ main {
 
 footer {
   grid-area: footer;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  padding: .8rem 1.5rem;
+  border: none;  
+  cursor: pointer;
+  font-weight: var(--font-medium);
+}
+
+.btn-primary {
+  background-color: var(--color-primary-100);
+  color: var(--color-gray-10);
+}
+
+.btn-secondary {
+  background-color: var(--color-cool-grey-10);
+  color: var(--color-secondary-100);
 }
 
 

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 
 function Header() {
   const location = useLocation();
-  const {id} = useParams();
+  const {id, eventId, packageId} = useParams();
 
   const getPageTitle = () => {
     switch (location.pathname) {
@@ -14,6 +14,8 @@ function Header() {
         return 'Event Details';
       case '/bookings':
         return 'Bookings';
+      case `/bookevent/${eventId}/${packageId}`:
+        return 'Book Event';
       default:
         return 'Ventixe';
     }

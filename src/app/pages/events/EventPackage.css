@@ -29,15 +29,6 @@
         color: var(--color-primary-100);
         margin-right: 1.5rem;
     }
-
-    .buy-ticket {
-        border-radius: 30px;
-        padding: 1rem 1.5rem;
-        border: none;
-        background-color: var(--color-primary-100);
-        color: var(--color-gray-10);
-        cursor: pointer;
-    }
 }
 
 

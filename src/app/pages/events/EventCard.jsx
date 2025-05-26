@@ -6,7 +6,7 @@ function EventCard({ event }) {
     <Link to={`/events/${event.id}`}>
       <div className='event-card'>
           <div className='img-container'>
-            <img src="" alt="" />
+            <img src={event.image} alt="" />
           </div>
           <div className='event-info'>
             <p className='date'>{event.eventDate}</p>
@@ -15,7 +15,7 @@ function EventCard({ event }) {
               <img src="/images/MapPin.svg" alt="" />
               <p>{event.location}</p>
             </div>
-            <p className='price'>${event.price}</p>
+            <p className='price'>${event.startPrice}</p>
           </div>
       </div>
     </Link>
