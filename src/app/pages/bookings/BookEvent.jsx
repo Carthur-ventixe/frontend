@@ -22,6 +22,11 @@ function BookEvent() {
         getEvent(eventId);
     }, [eventId])
 
+    const handleOk = () => {
+        setSubmitted(false)
+        reset()
+    }
+
     const onSubmit = async (data) => {
         const formData = {
             ...data,
@@ -43,12 +48,32 @@ function BookEvent() {
             reset()
         }
     }
+
+    if (submitted) {
+        return (
+            
+            <div className='book-event-wrapper'>
+                <div className='message-container'>
+                    <div className='booking-message'>
+                        <h3>Booking Successful</h3>
+                        <p>A confirmation email has been sent to your email address.</p>
+                        <p> Please check your inbox for event details.</p>
+                        <div className='btn-container'>
+                            <button onClick={handleOk} className='btn btn-primary'>Ok</button> 
+                        </div>  
+                    </div>  
+                </div>                                             
+            </div>  
+        )
+    }
+
     return (
+      
         <div className='book-event-wrapper'>
-            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <form className='form-container' onSubmit={handleSubmit(onSubmit)} noValidate>
 
                 <h2>{event.title}</h2>
-                <p className='packageName'>{eventPackage.title}</p>
+                <p className='packageName'>- {eventPackage.title}</p>
 
                 <div className='form-group-tickets'>
                     <label>Ticket Quantity</label>
@@ -56,7 +81,7 @@ function BookEvent() {
                         <input type="number" min={1} {...register('quantity', { required: 'Quantity is required',
                             min: {value: 1, message: "Quantity must be at least 1"}
                          })} />
-                        <span>{errors.quantity && errors.quantity.message}</span>
+                        <span className='error-quantity'>{errors.quantity && errors.quantity.message}</span>
                     </div>
                     <p className='totalPrice'>Total Price: ${totalPrice}</p>
                 </div>
@@ -67,42 +92,46 @@ function BookEvent() {
                     <div className='form-group'>
                         <label>First Name</label>
                         <input type="text" {...register('firstname', { required: 'First Name is required' })} />
-                        <span>{errors.firstname && errors.firstname.message}</span>
+                        <span className='error-message'>{errors.firstname && errors.firstname.message}</span>
                     </div>
                     <div className='form-group'>
                         <label>Last Name</label>
                         <input type="text" {...register('lastname', { required: 'Last Name is required' })}/>
-                        <span>{errors.lastname && errors.lastname.message}</span>
+                        <span className='error-message'>{errors.lastname && errors.lastname.message}</span>
                     </div>
                 </div>
                 <div className='form-group'>
                     <label>Email</label>
                     <input type="text" {...register('email', { required: 'Email is required' })}/>
-                    <span>{errors.email && errors.email.message}</span>
+                    <span className='error-message'>{errors.email && errors.email.message}</span>
                 </div>
                 <div className='form-group'>
                     <label>Street</label>
                     <input type="text" {...register('street', { required: 'Street is required' })}/>
-                    <span>{errors.street && errors.street.message}</span>
+                    <span className='error-message'>{errors.street && errors.street.message}</span>
                 </div>
                 <div className='address-group'>
                     <div className='form-group'>
                         <label>Postal Code</label>
                         <input type="text" {...register('postalcode', { required: 'Postal Code is required' })}/>
-                        <span>{errors.postalcode && errors.postalcode.message}</span>
+                        <span className='error-message'>{errors.postalcode && errors.postalcode.message}</span>
                     </div>
                     <div className='form-group'>
                         <label>City</label>
                         <input type="text" {...register('city', { required: 'City is required' })}/>
-                        <span>{errors.city && errors.city.message}</span>
+                        <span className='error-message'>{errors.city && errors.city.message}</span>
                     </div>
                 </div>
                 <div className='btn-group'>
                     <button type='submit' className='btn btn-primary'>Book Event</button>
                     <Link to={`/events/${eventId}`} className='btn btn-secondary'>Cancel</Link>
-                </div>
+                </div> 
             </form>
+
+                    
         </div>
+
+        
     )
 }
 export default BookEvent

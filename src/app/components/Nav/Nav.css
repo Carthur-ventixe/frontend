@@ -1,11 +1,10 @@
 .nav-wrapper {
-    height: 100dvh;
+    min-height: 100dvh;
     padding: 1rem 0 1rem 1rem;
 
 }
 
-.nav-container {
-    
+.nav-container {    
     background-color: var(--color-cool-grey-10);
     border-radius: 16px;
 

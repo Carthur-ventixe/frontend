@@ -4,13 +4,15 @@
     height: 100%;
     margin: 0 1rem 0 0;
     padding: 5rem 1rem;
+    
 }
 
 .events-container {
     display: grid;  
     gap: 1rem;
     background-color: var(--color-gray-20);
-    overflow: auto;
+    overflow-y: auto;
+    max-height: 100dvh;
 
     @media (width >= 768px) {
         grid-template-columns: repeat(2, 1fr);
