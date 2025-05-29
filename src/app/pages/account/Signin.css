@@ -1,0 +1,25 @@
+.signin-form {
+    background-color: var(--color-gray-30);
+    border-radius: 16px;
+    min-width: 25%;
+    padding: 4rem;
+
+    form {
+        display: grid;
+        gap: 1rem;
+    }
+
+    h3 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    button {
+        margin-top: 1.5rem;
+    }
+
+    p {
+        font-size: .8rem;
+        margin-top: 1.5rem;
+    }
+}

@@ -32,7 +32,7 @@ function BookEvent() {
             ...data,
             eventId: eventId,
             totalPrice: totalPrice,
-            ticketQuantity: quantity
+            ticketQuantity: quantity,
         };
 
         const res = await fetch('https://localhost:7007/api/bookings', {

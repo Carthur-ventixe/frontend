@@ -1,5 +1,5 @@
 import './Header.css'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useParams } from "react-router-dom"
 
 function Header() {
@@ -28,7 +28,11 @@ function Header() {
           <div className='headline'>
             <h4>{getPageTitle()}</h4>
           </div>
-
+          <Link to={"signin"} className='sign-in'>
+              <div className='signIn-circle'>
+                <img src="/images/SignIn.svg" alt="" />
+              </div>
+          </Link>
       </div>
     </header>
   )

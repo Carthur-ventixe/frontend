@@ -115,6 +115,13 @@ a {
   }
 }
 
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
 nav {
   grid-area: nav;
 }
@@ -151,6 +158,32 @@ footer {
   background-color: var(--color-cool-grey-10);
   color: var(--color-secondary-100);
 }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: .3rem;
+    margin-bottom: 1rem;
+
+    label {
+        font-size: 0.8rem;
+        color: var(--color-gray-95);
+    }
+
+    input {
+        border: none;
+        font-size: 14px;
+        padding: .7rem;
+        border-radius: 16px;
+
+        &:focus {
+            outline: none;
+            border: 1px solid var(--color-primary-100);
+        }
+    }
+}
+
 
 
 
