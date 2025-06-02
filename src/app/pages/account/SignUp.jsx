@@ -6,7 +6,7 @@ import './SignUp.css'
 
 
 function SignUp() {
-  const [submitted, setSubmitted] = useState(true)
+  const [submitted, setSubmitted] = useState(false)
   const [message, setMessage] = useState();
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
 

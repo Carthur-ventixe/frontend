@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import './emailconfirmed.css'
 
 function EmailConfirmed() {
 
     const [searchParams] = useSearchParams();
     const email = searchParams.get('email');
     const token = searchParams.get('token');
-    const [submitted, setSubmitted] = useState(false)
+    const [submitted, setSubmitted] = useState(true)
 
     useEffect(() => {
         confirm()
@@ -27,15 +28,14 @@ function EmailConfirmed() {
         }
     }
         
-    if (!submitted) {
+    if (submitted) {
         return (
-        <div>Email Not Confirmed</div>
+         <div className="verification">
+            <h1>Email confirmed!</h1>
+            <p>You can now sign in to your account.</p>
+            <Link to={"/signin"} className="btn btn-primary">Sign In</Link>
+          </div>
         )
     }
-
-    return (
-        <div>Email Confirmed</div>
-        )
-  
 }
 export default EmailConfirmed

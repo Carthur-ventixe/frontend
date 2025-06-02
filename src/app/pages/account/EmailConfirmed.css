@@ -1,0 +1,15 @@
+.verification {
+    background-color: var(--color-primary-40);
+    border-radius: 16px;
+    padding: 3rem;
+
+    h1 {
+        color: var(--color-secondary-100);
+        margin-bottom: 2rem;
+    }
+
+    p {
+        color: var(--color-secondary-110);
+        margin-bottom: 1.5rem;
+    }
+}
