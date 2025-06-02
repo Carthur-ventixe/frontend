@@ -1,0 +1,14 @@
+.success-message-container {
+    position: relative;
+
+    .success-message {
+        position: absolute;
+        font-size: .8rem;
+        background-color: var(--color-primary-40);
+        color: var(--color-secondary-110);
+        padding: .8rem;
+        border-radius: 16px;
+        top: 10px;
+    }
+}
+

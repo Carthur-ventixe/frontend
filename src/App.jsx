@@ -8,6 +8,7 @@ import EventDetails from './app/pages/events/EventDetails';
 import BookEvent from './app/pages/bookings/BookEvent';
 import SignIn from './app/pages/account/SignIn';
 import SignUp from './app/pages/account/SignUp';
+import EmailConfirmed from './app/pages/account/EmailConfirmed';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route element={<CenterLayout />}>
           <Route path='/signin' element={<SignIn />}/>
           <Route path='/signup' element={<SignUp />}/>
+          <Route path='/confirmed' element={<EmailConfirmed />}/>
         </Route>
       </Routes>
     </>

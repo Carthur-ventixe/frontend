@@ -1,31 +1,69 @@
+import { useState } from 'react'
 import './Signin.css'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
+import './SignUp.css'
+
 
 function SignUp() {
+  const [submitted, setSubmitted] = useState(true)
+  const [message, setMessage] = useState();
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+
+  const password = watch("password");
+
+  const onSubmit = async (data) => {
+
+      const res = await fetch('https://localhost:7166/api/accounts/register', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+
+        const responseMessage = await res.text();
+
+        if (res.ok) {
+            setSubmitted(true);
+            reset();
+            setMessage(responseMessage);
+            setTimeout(() => setSubmitted(false), 5000);
+        }
+        
+    }
+
   return (
 
     <div className='signin-form'>
-      <h3>Sign In</h3>
-      <form>
+      <h3>Sign Up</h3>
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className='form-group'>
           <label>Email</label>
-          <input type="text" />
-          <span className='error-message'></span>
+          <input type="email" {...register('email', { required: 'Email is required', pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Invalid email"} })}/>
+          <span className='error-message'>{errors.email && errors.email.message}</span>
         </div>
         <div className='form-group'>
           <label>Password</label>
-          <input type="text" />
-          <span className='error-message'></span>
+          <input type="password" {...register('password', { required: 'Password is required', pattern: { value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/,message: 'Must be at least 8 chars, include a number, upper & lower case letter'}})} />
+          <span className='error-message'>{errors.password && errors.password.message}</span>
         </div>
         <div className='form-group'>
           <label>Confirm Password</label>
-          <input type="text" />
-          <span className='error-message'></span>
+          <input type="password" {...register('confirmPassword', { required: 'Please confirm your password', validate: (value) => value === password || "Your password do not match" })} />
+          <span className='error-message'>{errors.confirmPassword && errors.confirmPassword.message}</span>
         </div>
-        <button className='btn btn-primary'>Sign Up</button>
+        <button type='submit' className='btn btn-primary'>Sign Up</button>
       </form>
       <p>Already have an account? <Link to={"/signin"}>Sign In</Link></p>
+      <div className='success-message-container'>
+        {submitted && (
+        <div className="success-message">
+          <span>Account created, please verify your emailaddress</span>        
+        </div>
+        )}
+      </div>
+      
     </div>
 
   )
