@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
-import './Signin.css'
+import './SignIn.css'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
