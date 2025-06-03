@@ -1,14 +1,14 @@
 import { Route, Routes } from 'react-router-dom'
-import MainLayout from './app/layouts/MainLayout';
-import CenterLayout from './app/layouts/CenterLayout';
-import Events from './app/pages/events/Events'
+import MainLayout from './layouts/MainLayout';
+import CenterLayout from './layouts/CenterLayout';
+import Events from './pages/Events/Events'
 import './App.css'
-import Bookings from './app/pages/Bookings/Bookings';
-import EventDetails from './app/pages/Events/EventDetails';
-import BookEvent from './app/pages/Bookings/BookEvent';
-import SignIn from './app/pages/Account/SignIn';
-import SignUp from './app/pages/Account/SignUp';
-import EmailConfirmed from './app/pages/Account/EmailConfirmed';
+import Bookings from './pages/Bookings/Bookings';
+import EventDetails from './pages/Events/EventDetails';
+import BookEvent from './pages/Bookings/BookEvent';
+import SignIn from './pages/Accounts/SignIn';
+import SignUp from './pages/Accounts/SignUp';
+import EmailConfirmed from './pages/Accounts/EmailConfirmed';
 
 function App() {
 
