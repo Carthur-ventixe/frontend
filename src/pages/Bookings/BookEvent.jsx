@@ -36,7 +36,7 @@ function BookEvent() {
             packageId: eventPackage.packageId
         };
 
-        const res = await fetch('https://localhost:7007/api/bookings', {
+        const res = await fetch('https://ca-bookingservice-hya2g2hqeug7bnd4.swedencentral-01.azurewebsites.net/api/bookings', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
