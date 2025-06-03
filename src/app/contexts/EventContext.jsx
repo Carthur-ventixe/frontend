@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect } from "react";
 export const EventContext = createContext();
 
 const EventProvider = ({children}) => {
-    const apiUrl = 'https://localhost:7016/api';
+    const apiUrl = 'https://ca-eventservice-ggbpdjfxatc3cmch.swedencentral-01.azurewebsites.net/api';
     const [events, setEvents] = useState([]);
     const [event, setEvent] = useState([]);
     const [eventPackage, setPackage] = useState([]);

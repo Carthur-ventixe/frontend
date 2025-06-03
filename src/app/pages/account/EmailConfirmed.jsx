@@ -7,7 +7,7 @@ function EmailConfirmed() {
     const [searchParams] = useSearchParams();
     const email = searchParams.get('email');
     const token = searchParams.get('token');
-    const [submitted, setSubmitted] = useState(true)
+    const [submitted, setSubmitted] = useState(false)
 
     useEffect(() => {
         confirm()

@@ -1,37 +1,27 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './Signin.css'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import './SignUp.css'
+import { AccountContext } from '../../contexts/AccountContext'
 
 
 function SignUp() {
   const [submitted, setSubmitted] = useState(false)
-  const [message, setMessage] = useState();
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+  const { handleSignUp } = useContext(AccountContext);
 
   const password = watch("password");
 
   const onSubmit = async (data) => {
-
-      const res = await fetch('https://localhost:7166/api/accounts/register', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-
-        const responseMessage = await res.text();
-
-        if (res.ok) {
-            setSubmitted(true);
-            reset();
-            setMessage(responseMessage);
-            setTimeout(() => setSubmitted(false), 5000);
-        }
-        
-    }
+    const result = await handleSignUp(data);
+    
+    if (result) {
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+      reset();
+    }   
+  }
 
   return (
 
