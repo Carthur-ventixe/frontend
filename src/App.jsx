@@ -3,12 +3,12 @@ import MainLayout from './app/layouts/MainLayout';
 import CenterLayout from './app/layouts/CenterLayout';
 import Events from './app/pages/events/Events'
 import './App.css'
-import Bookings from './app/pages/bookings/Bookings';
-import EventDetails from './app/pages/events/EventDetails';
-import BookEvent from './app/pages/bookings/BookEvent';
-import SignIn from './app/pages/account/SignIn';
-import SignUp from './app/pages/account/SignUp';
-import EmailConfirmed from './app/pages/account/EmailConfirmed';
+import Bookings from './app/pages/Bookings/Bookings';
+import EventDetails from './app/pages/Events/EventDetails';
+import BookEvent from './app/pages/Bookings/BookEvent';
+import SignIn from './app/pages/Account/SignIn';
+import SignUp from './app/pages/Account/SignUp';
+import EmailConfirmed from './app/pages/Account/EmailConfirmed';
 
 function App() {
 
