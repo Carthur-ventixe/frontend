@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from 'react-router-dom';
-import './Emailconfirmed.css'
+import './EmailConfirmed.css';
 
 function EmailConfirmed() {
 
