@@ -1,35 +1,31 @@
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './Signin.css'
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AccountContext } from '../../contexts/AccountContext';
 
 
 function SignIn() {
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
   const [errorMessage, setMessage] = useState();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { handleSignIn, responseMessage } = useContext(AccountContext);
+
+  const from = location.state?.from || "/";
 
   const onSubmit = async (data) => {
+    var result = await handleSignIn(data)
+    console.log("from:", from);         // Ska visa t.ex. "/bookevent/6/1"
+    console.log("result:", result);  
 
-      const res = await fetch('https://localhost:7166/api/accounts/signin', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-
-        const responseMessage = await res.text();
-
-        if (res.ok) {
-            navigate("/");
-
-        }
-        else {
-          setMessage(responseMessage);
-        }
-        
+      if (result) {
+        navigate(from, { replace: true });
+      }
+      else {
+        setMessage(responseMessage);
+      }       
     }
 
   return (

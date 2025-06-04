@@ -159,6 +159,14 @@ footer {
   color: var(--color-secondary-100);
 }
 
+.btn-signout {
+  background-color: var(--color-cool-grey-20);
+  color: var(--color-secondary-100);
+  width: 100%;
+  border-radius: 12px;
+  padding-right: 3rem;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;

@@ -9,6 +9,7 @@ import BookEvent from './pages/Bookings/BookEvent';
 import SignIn from './pages/Accounts/SignIn';
 import SignUp from './pages/Accounts/SignUp';
 import EmailConfirmed from './pages/Accounts/EmailConfirmed';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route index element={<Events />}/>
           <Route path='/events/:id' element={<EventDetails />}/>
-          <Route path='/bookevent/:eventId/:packageId' element={<BookEvent />}/>
+          <Route path='/bookevent/:eventId/:packageId' element={<ProtectedRoute><BookEvent /></ProtectedRoute>}/>
           <Route path='/bookings' element={<Bookings />}/>
         </Route>
         <Route element={<CenterLayout />}>

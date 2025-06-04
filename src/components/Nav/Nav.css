@@ -7,7 +7,8 @@
 .nav-container {    
     background-color: var(--color-cool-grey-10);
     border-radius: 16px;
-
+    padding-top: 1.5rem;
+    padding-left: 2rem;
 
     @media (width >= 768px) {
         height: 100%;
@@ -15,8 +16,9 @@
     }
 
     @media (width >= 1400px) {
-        padding-top: 1.5rem;
-        padding-left: 2rem;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
+        padding: 1.5rem 1rem;
     }
 }
 
@@ -61,7 +63,7 @@
     }
 
     @media (width >= 1400px) {
-
+        padding-left: 1rem;
         .link-title {
             display: block;
         }
@@ -86,4 +88,12 @@
         font-size: 0.9rem;
         font-weight: var(--font-regular);
     }
+}
+
+.signout-container {
+    align-self: flex-end;
+    img {
+        padding-right: 1rem;
+    }
+    
 }

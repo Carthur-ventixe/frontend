@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './EventPackage.css'
 
 function EventPackage({ p, eventId }) {
+  
+
   return (
     
     <div className="event-package-card">
@@ -21,7 +23,7 @@ function EventPackage({ p, eventId }) {
       <div className="package-price">
         <p>${p.price}</p>
       </div>
-      <Link className='btn btn-primary' to={`/bookevent/${eventId}/${p.id}`}>Buy</Link>
+      <Link to={`/bookevent/${eventId}/${p.id}`} className="btn btn-primary">Buy</Link>
     </div>
   )
 }

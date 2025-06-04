@@ -60,7 +60,7 @@ function BookEvent() {
                         <p>A confirmation email has been sent to your email address.</p>
                         <p> Please check your inbox for event details.</p>
                         <div className='btn-container'>
-                            <button onClick={handleOk} className='btn btn-primary'>Ok</button> 
+                            <button onClick={handleOk} className='btn btn-primary'>Ok</button>
                         </div>  
                     </div>  
                 </div>                                             
