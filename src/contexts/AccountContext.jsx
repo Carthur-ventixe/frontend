@@ -3,13 +3,13 @@ import React, { createContext, useState } from "react";
 export const AccountContext = createContext();
 
 const AccountProvider = ({children}) => {
-    const apiUrl = 'https://localhost:7166/api/';
+    const apiUrl = 'https://ca-accountservice-gcdrf8erbwg2fecj.swedencentral-01.azurewebsites.net';
     const [accessToken, setAccessToken] = useState(() => localStorage.getItem("accessToken"));
-    const [responseMessage, setResponseMessage] = useState();
+
 
     const handleSignUp = async (data) => {
 
-      const res = await fetch(apiUrl + 'accounts/register', {
+      const res = await fetch(apiUrl + '/api/accounts/register', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ const AccountProvider = ({children}) => {
 
     const handleSignIn = async (data) => {
 
-        const res = await fetch(apiUrl + 'accounts/signin', {
+        const res = await fetch(apiUrl + '/api/accounts/signin', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -40,16 +40,15 @@ const AccountProvider = ({children}) => {
             localStorage.setItem("accessToken", data.accessToken)
             setAccessToken(data.accessToken)
 
-            return true;
+            return { success: true };
         }
         else {
-            setResponseMessage(res.text())
-            return false;
+            return { success: false, message: data.message || "Invalid email or password." };
         }        
     }
 
     const handleSignOut = async () => {
-        const res = await fetch(apiUrl + 'accounts/signout', {
+        const res = await fetch(apiUrl + '/api/accounts/signout', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +64,7 @@ const AccountProvider = ({children}) => {
         const token = localStorage.getItem("accessToken");
         console.log("AccessToken in validateToken:", token);
 
-        const res = await fetch(apiUrl + 'accounts/validate', {
+        const res = await fetch(apiUrl + '/api/accounts/validate', {
             method: 'get',
             headers: {
                 Authorization: `Bearer ${token}`
@@ -81,7 +80,7 @@ const AccountProvider = ({children}) => {
     }
 
     return (
-    <AccountContext.Provider value={{ handleSignUp, handleSignIn, responseMessage, validateToken, handleSignOut }}>
+    <AccountContext.Provider value={{ handleSignUp, handleSignIn, validateToken, handleSignOut }}>
         {children}
     </AccountContext.Provider>
     )

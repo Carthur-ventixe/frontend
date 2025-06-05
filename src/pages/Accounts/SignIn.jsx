@@ -7,24 +7,24 @@ import { AccountContext } from '../../contexts/AccountContext';
 
 
 function SignIn() {
-  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm({
+    mode: 'onChange'
+  });
   const [errorMessage, setMessage] = useState();
   const navigate = useNavigate();
   const location = useLocation();
-  const { handleSignIn, responseMessage } = useContext(AccountContext);
+  const { handleSignIn } = useContext(AccountContext);
 
   const from = location.state?.from || "/";
 
   const onSubmit = async (data) => {
     var result = await handleSignIn(data)
-    console.log("from:", from);         // Ska visa t.ex. "/bookevent/6/1"
-    console.log("result:", result);  
 
-      if (result) {
+      if (result.success) {
         navigate(from, { replace: true });
       }
       else {
-        setMessage(responseMessage);
+        setMessage(result.message);
       }       
     }
 
@@ -39,8 +39,8 @@ function SignIn() {
         </div>
         <div className='form-group'>
           <label>Password</label>
-          <input type="password" {...register('password',{ required: 'Please enter a valid password'})}/>
-          <span className='error-message'>{errorMessage}{errors.password && errors.password.message}</span>
+          <input type="password" {...register('password',{ required: 'Please enter a valid password.'})}/>
+          <span className='error-message'>{errorMessage} {errors.password && errors.password.message}</span>
         </div>
         <button type='submit' className='btn btn-primary'>Sign In</button>
       </form>

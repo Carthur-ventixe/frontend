@@ -8,6 +8,16 @@ function EventDetails() {
     const {id} = useParams();
     const { event, getEvent } = useContext(EventContext);
 
+    const date = new Date(event.eventDate)
+    const formattedDate = date.toLocaleString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  });
+
     useEffect(() => {
       getEvent(id);
     },[id])
@@ -24,7 +34,7 @@ function EventDetails() {
             <h4 className="event-title">{event.title}</h4>
             <div className="date">
               <img src="/images/Calendar.svg" alt="" />
-              <p>{event.eventDate}</p>
+              <p>{formattedDate}</p>
             </div>
             <div className="location">
               <img src="/images/MapPin.svg" alt="" />
