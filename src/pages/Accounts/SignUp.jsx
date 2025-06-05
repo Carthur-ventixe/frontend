@@ -8,7 +8,9 @@ import { AccountContext } from '../../contexts/AccountContext'
 
 function SignUp() {
   const [submitted, setSubmitted] = useState(false)
-  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, watch } = useForm({
+    mode: 'onChange'
+  });
   const { handleSignUp } = useContext(AccountContext);
 
   const password = watch("password");

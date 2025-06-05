@@ -20,7 +20,6 @@
 
 .sign-in {
     
-
     .signIn-circle {
         display: flex;
         align-items: center;
@@ -30,5 +29,13 @@
         background-color: var(--color-cool-grey-10);
         border-radius: 50%;
         color: white;
+
+        &:hover {
+            background-color: var(--color-cool-grey-20);
+        }
+
+        &:active {
+            background-color: var(--color-cool-grey-30);
+        }
     }
 }

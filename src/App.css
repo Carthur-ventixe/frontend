@@ -45,6 +45,13 @@
   --color-cool-grey-80: #56565C;
   --color-cool-grey-90: #39393D;
   --color-cool-grey-100: #131314;
+
+  --color-btn-primary-hover: #c674ca;
+  --color-btn-primary-active: #dd80e2;
+  --color-btn-secondary-hover: #E0E0E1;
+  --color-btn-secondary-active: #F7F7F7;
+  --color-btn-signout-hover: #E0E0E1;
+  --color-btn-signout-active: #EDEDED;
 }
 
 * {
@@ -152,11 +159,27 @@ footer {
 .btn-primary {
   background-color: var(--color-primary-100);
   color: var(--color-gray-10);
+
+  &:hover {
+    background-color: var(--color-btn-primary-hover);
+  }
+
+  &:active {
+    background-color: var(--color-btn-primary-active);
+  }
 }
 
 .btn-secondary {
   background-color: var(--color-cool-grey-10);
   color: var(--color-secondary-100);
+
+  &:hover {
+    background-color: var(--color-btn-secondary-hover);
+  }
+
+  &:active {
+    background-color: var(--color-btn-secondary-active);
+  }
 }
 
 .btn-signout {
@@ -165,6 +188,14 @@ footer {
   width: 100%;
   border-radius: 12px;
   padding-right: 3rem;
+
+  &:hover {
+    background-color: var(--color-btn-secondary-hover);
+  }
+
+  &:active {
+    background-color: var(--color-btn-secondary-active);
+  }
 }
 
 .form-group {
