@@ -15,7 +15,7 @@ function EmailConfirmed() {
 
     const confirm = async () => {
        
-        const res = await fetch('https://localhost:7166/api/accounts/confirm', {
+        const res = await fetch('https://ca-accountservice-gcdrf8erbwg2fecj.swedencentral-01.azurewebsites.net/api/accounts/confirm', {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,6 +34,13 @@ function EmailConfirmed() {
             <h1>Email confirmed!</h1>
             <p>You can now sign in to your account.</p>
             <Link to={"/signin"} className="btn btn-primary">Sign In</Link>
+          </div>
+        )
+    }
+    else {
+        return (
+         <div className="verification">
+            <h1>Email not confirmed!</h1>
           </div>
         )
     }
