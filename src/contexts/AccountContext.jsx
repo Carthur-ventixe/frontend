@@ -6,7 +6,6 @@ const AccountProvider = ({children}) => {
     const apiUrl = 'https://ca-accountservice-gcdrf8erbwg2fecj.swedencentral-01.azurewebsites.net';
     const [accessToken, setAccessToken] = useState(() => localStorage.getItem("accessToken"));
 
-
     const handleSignUp = async (data) => {
 
       const res = await fetch(apiUrl + '/api/accounts/register', {
@@ -62,7 +61,6 @@ const AccountProvider = ({children}) => {
 
     const validateToken = async () => {
         const token = localStorage.getItem("accessToken");
-        console.log("AccessToken in validateToken:", token);
 
         const res = await fetch(apiUrl + '/api/accounts/validate', {
             method: 'get',

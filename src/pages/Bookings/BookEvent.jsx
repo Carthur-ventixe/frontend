@@ -28,6 +28,7 @@ function BookEvent() {
     }
 
     const onSubmit = async (data) => {
+        const token = localStorage.getItem("accessToken");
         const formData = {
             ...data,
             eventId: eventId,
@@ -39,7 +40,8 @@ function BookEvent() {
         const res = await fetch('https://ca-bookingservice-hya2g2hqeug7bnd4.swedencentral-01.azurewebsites.net/api/bookings', {
             method: 'post',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(formData)
         })
