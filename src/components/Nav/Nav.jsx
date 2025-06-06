@@ -31,7 +31,7 @@ function Nav() {
 
           <NavLink to={"bookings"} className='nav-link'>
             <div className='img-container'>
-              <img src="/images/BookingsIcon.svg"/>
+              <img src="/images/BookingsIcon.svg" />
             </div>
             <span className='link-title'>Bookings</span>
           </NavLink>

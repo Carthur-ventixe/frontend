@@ -90,10 +90,15 @@
     }
 }
 
+.nav-link.active {
+    span {
+        color: var(--color-primary-100);
+    }
+}
+
 .signout-container {
     align-self: flex-end;
     img {
         padding-right: 1rem;
-    }
-    
+    }    
 }
