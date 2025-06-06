@@ -12,17 +12,21 @@ function SignUp() {
     mode: 'onChange'
   });
   const { handleSignUp } = useContext(AccountContext);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const password = watch("password");
 
   const onSubmit = async (data) => {
     const result = await handleSignUp(data);
     
-    if (result) {
+    if (result.success) {
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 5000);
       reset();
     }   
+    else {
+      setErrorMessage(result.message)
+    }
   }
 
   return (
@@ -33,7 +37,7 @@ function SignUp() {
         <div className='form-group'>
           <label>Email</label>
           <input type="email" {...register('email', { required: 'Email is required', pattern: {value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, message: "Invalid email"} })}/>
-          <span className='error-message'>{errors.email && errors.email.message}</span>
+          <span className='error-message'>{errors.email && errors.email.message}{errorMessage}</span>
         </div>
         <div className='form-group'>
           <label>Password</label>

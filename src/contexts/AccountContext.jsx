@@ -16,10 +16,11 @@ const AccountProvider = ({children}) => {
             body: JSON.stringify(data)
         })
         if (res.ok) {
-            return true
+            return { success: true };
         }
         else {
-            return false
+            const errorMessage = await res.text();
+            return { success: false, message: errorMessage };
         }
     }
 
@@ -35,13 +36,13 @@ const AccountProvider = ({children}) => {
 
         if (res.ok) {
             const data = await res.json();
-
             localStorage.setItem("accessToken", data.accessToken)
             setAccessToken(data.accessToken)
 
             return { success: true };
         }
-        else {
+        else { 
+            const data = await res.json();
             return { success: false, message: data.message || "Invalid email or password." };
         }        
     }
