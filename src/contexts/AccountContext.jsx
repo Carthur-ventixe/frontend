@@ -42,7 +42,7 @@ const AccountProvider = ({children}) => {
             return { success: true };
         }
         else { 
-            const data = await res.json();
+            const data = await res.text();
             return { success: false, message: data.message || "Invalid email or password." };
         }        
     }
